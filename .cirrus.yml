@@ -8,7 +8,7 @@ env:
   LD_PRELOAD: /usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4
   USERNAME: eschan145
   KEY: JZlMxaI2jRV2nYijSRWR4pKH9Ui35Qz3OiIY3Wyb
-  COMPUTEMETHOD: CPU
+  COMPUTEMETHOD: GPU
   DOWNLOAD_URL: https://www.sheepit-renderfarm.com/media/applet/client-latest.php
 
 task:
