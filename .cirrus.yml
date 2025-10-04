@@ -1,7 +1,7 @@
 container:
-  image: ubuntu:22.04
+  image: nvidia/cuda:12.4.1-base-ubuntu22.04
   cpu: 8
-  memory: 16G
+  memory: 32G
   gpu: true
 
 env:
