@@ -1,6 +1,6 @@
 container:
   image: ubuntu:22.04
-  cpu: 16
+  cpu: 14
   memory: 32G
 
 env:
