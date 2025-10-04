@@ -1,8 +1,7 @@
 container:
   image: ubuntu:22.04
-  cpu: 32
+  cpu: 16
   memory: 32G
-  gpu: true
 
 env:
   LD_PRELOAD: /usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4
@@ -13,7 +12,7 @@ env:
 
 task:
   name: Blender GPU + SheepIt Setup
-  timeout_in: 60m
+  timeout_in: 120m
 
   setup_script:
     - apt update
