@@ -1,0 +1,30 @@
+container:
+  image: ubuntu:22.04
+  cpu: 8
+  memory: 16G
+  gpu: true
+
+env:
+  LD_PRELOAD: /usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4
+  USERNAME: eschan145
+  KEY: JZlMxaI2jRV2nYijSRWR4pKH9Ui35Qz3OiIY3Wyb
+  COMPUTEMETHOD: CPU
+  DOWNLOAD_URL: https://www.sheepit-renderfarm.com/media/applet/client-latest.php
+
+task:
+  name: Blender GPU + SheepIt Setup
+  timeout_in: 60m
+
+  setup_script:
+    - apt update
+    - apt remove -y libtcmalloc-minimal4 || true
+    - apt install -y libtcmalloc-minimal4
+    - echo $LD_PRELOAD
+    - apt install -y libboost-all-dev libgl1-mesa-dev libglu1-mesa libsm-dev libxkbcommon0 wget openjdk-17-jre
+    - wget $DOWNLOAD_URL -O client.jar
+    - |
+      if [ "$COMPUTEMETHOD" = "CPU" ]; then
+        java -jar client.jar -ui oneLine/text -cache-dir /tmp/cache -compute-method CPU -cores 8 -login $USERNAME -password $KEY -ui text
+      else
+        java -jar client.jar -ui oneLine/text -cache-dir /tmp/cache -compute-method GPU -gpu OPTIX_0 -login $USERNAME -password $KEY -ui text
+      fi
