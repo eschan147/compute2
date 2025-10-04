@@ -1,6 +1,6 @@
 container:
-  image: nvidia/cuda:12.4.1-base-ubuntu22.04
-  cpu: 8
+  image: ubuntu:22.04
+  cpu: 32
   memory: 32G
   gpu: true
 
@@ -8,7 +8,7 @@ env:
   LD_PRELOAD: /usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4
   USERNAME: eschan145
   KEY: JZlMxaI2jRV2nYijSRWR4pKH9Ui35Qz3OiIY3Wyb
-  COMPUTEMETHOD: GPU
+  COMPUTEMETHOD: CPU
   DOWNLOAD_URL: https://www.sheepit-renderfarm.com/media/applet/client-latest.php
 
 task:
